@@ -23,6 +23,19 @@ public class CalculadoraDescuentos {
         return redondear(precioFinal);
     }
 
+    public double descuentoPorCantidad(int cantidad, double precioUnitario) {
+        if (cantidad <= 0 || precioUnitario <= 0) {
+            throw new IllegalArgumentException("Cantidad y precio deben ser positivos");
+        }
+        if (cantidad >= 10) {
+            return calcularPrecioFinal(precioUnitario * cantidad, 15);
+        } else if (cantidad >= 5) {
+            return calcularPrecioFinal(precioUnitario * cantidad, 10);
+        } else {
+            return redondear(precioUnitario * cantidad);
+        }
+    }
+
     private double redondear(double valor) {
         return Math.round(valor * 100.0) / 100.0;
     }
