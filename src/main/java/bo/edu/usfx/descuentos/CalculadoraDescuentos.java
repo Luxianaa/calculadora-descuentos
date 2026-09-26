@@ -36,6 +36,10 @@ public class CalculadoraDescuentos {
         }
     }
 
+    public double descuentoMayorista(int cantidad, double precioUnitario) {
+        return 0.0; // TDD: fase roja inicial
+    }
+
     private double redondear(double valor) {
         return Math.round(valor * 100.0) / 100.0;
     }

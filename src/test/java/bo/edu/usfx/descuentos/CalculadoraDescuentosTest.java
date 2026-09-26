@@ -74,4 +74,10 @@ class CalculadoraDescuentosTest {
         assertThrows(IllegalArgumentException.class, () -> calculadora.descuentoPorCantidad(0, 10.0));
         assertThrows(IllegalArgumentException.class, () -> calculadora.descuentoPorCantidad(5, 0.0));
     }
+
+    @Test
+    void descuentoMayoristaAplica20PorcientoPara50UnidadesOMas() {
+        // 50 unidades a $10 = $500 - 20% = $400
+        assertEquals(400.00, calculadora.descuentoMayorista(50, 10.0), 0.001);
+    }
 }
