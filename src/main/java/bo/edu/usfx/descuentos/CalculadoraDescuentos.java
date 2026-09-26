@@ -37,7 +37,14 @@ public class CalculadoraDescuentos {
     }
 
     public double descuentoMayorista(int cantidad, double precioUnitario) {
-        return 0.0; // TDD: fase roja inicial
+        if (cantidad <= 0 || precioUnitario <= 0) {
+            throw new IllegalArgumentException("Cantidad y precio deben ser positivos");
+        }
+        if (cantidad >= 50) {
+            return calcularPrecioFinal(precioUnitario * cantidad, 20);
+        } else {
+            return descuentoPorCantidad(cantidad, precioUnitario);
+        }
     }
 
     private double redondear(double valor) {
